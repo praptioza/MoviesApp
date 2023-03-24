@@ -8,16 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var movielistViewModel = MovieListViewModel()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView{
+            List(movielistViewModel.movies, id: \.id) { movie in
+                HStack{
+                    VStack{
+                        Text(movie.title)
+                    }
+                }
+            }.navigationTitle("Popular Movies")
         }
-        .padding()
     }
+    
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
