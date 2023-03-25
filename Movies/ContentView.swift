@@ -8,18 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var movielistViewModel = MovieListViewModel()
     
     var body: some View {
-        NavigationView{
-            List(movielistViewModel.movies, id: \.id) { movie in
-                HStack{
-                    VStack{
-                        Text(movie.title)
-                    }
-                }
-            }.navigationTitle("Popular Movies")
-        }
+        MovieListView()
     }
     
 }
@@ -30,3 +21,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
